@@ -17,6 +17,9 @@ public class Cliente {
         this.casado = casado;
     }
 
+    public Cliente() {
+    }
+
     public Integer getId() {
         return id;
     }
@@ -58,7 +61,8 @@ public class Cliente {
     }
 
     public Boolean getCasado() {
-        return casado;
+
+        return this.casado;
     }
 
     public void setCasado(Boolean casado) {

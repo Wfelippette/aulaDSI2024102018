@@ -12,17 +12,23 @@ public class DatabaseMySQL implements Database {
 
     @Override
     public Connection conectar() {
-            try {
-                this.connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1/javadb","root","");
-            } catch (SQLException ex) {
-                Logger.getLogger(DatabaseMySQL.class.getName()).log(Level.SEVERE,null,ex);
-            }
+        try {
+            this.connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1/javadb","root","");
+            return this.connection;
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseMySQL.class.getName()).log(Level.SEVERE,null,ex);
+            return null;
+        }
 
 
     }
 
     @Override
     public void desconectar() {
-
+        try {
+          connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseMySQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
